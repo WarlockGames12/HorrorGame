@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/BusScene.unity
+- path: Assets/Scenes/ExampleForDialogue.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

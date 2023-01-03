@@ -8,7 +8,7 @@ namespace DialogueSystem
     {
         public bool isFinished { get; protected set; }
         
-        protected IEnumerator WriteText(string input, Text textHolder, float Delay, AudioClip sound)
+        protected IEnumerator WriteText(string input, Text textHolder, float Delay, AudioClip sound, float delayAfter)
         {
             for (int i = 0; i < input.Length; i++)
             {

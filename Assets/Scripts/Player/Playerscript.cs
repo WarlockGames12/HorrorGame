@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using DialogueSystem;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,85 +22,56 @@ public class Playerscript : MonoBehaviour
     public GameObject Paused;
     bool isPaused = false;
 
-    private NPCWalksToPlayerThenRuns SetTrue;
-    
     [Header("Will play only when close to sign: ")]
     public GameObject NPC;
     public GameObject Animation;
     public GameObject PressE;
     public bool InRange = false;
     public bool isPressed = false;
-    public bool isTalking = false;
 
-    
-    
     [Header("Dialogue Wont Play at beginning: ")]
     public GameObject DontPlay;
     
     [Header("Audio Walking: ")]
     public AudioSource audioSource;
     public AudioClip[] Walker;
-    private bool _isWalking = false;
 
     Vector3 velocity;
-    private Vector2 _footSteps;
 
     // Start is called before the first frame update
-    private void Start()
+    void Start()
     {
-        SetTrue = FindObjectOfType<NPCWalksToPlayerThenRuns>();
-        if (SetTrue == null)
-        {
-            Debug.Log("Do Nothing");
-        }
-        else
-        {
-            NPC.SetActive(false);
-        }
         DontPlay.SetActive(false);
         characterController = GetComponent<CharacterController>();
         Paused.SetActive(false);
         PressE.SetActive(false);
         Animation.SetActive(false);
-        
+        NPC.SetActive(false);
     }
 
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
             Move();
-            switch (isPaused)
+            if (!isPaused && Input.GetKeyDown(KeyCode.Escape))
             {
-                case false when Input.GetKeyDown(KeyCode.Escape):
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
-                    Time.timeScale = 0;
-                    Paused.SetActive(true);
-                    isPaused = true;
-                    break;
-                case true when Input.GetKeyDown(KeyCode.Escape):
-                    Cursor.lockState = CursorLockMode.Locked;
-                    Cursor.visible = false;
-                    Time.timeScale = 1;
-                    Paused.SetActive(false);
-                    isPaused = false;
-                    break;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                Time.timeScale = 0;
+                Paused.SetActive(true);
+                isPaused = true;
+            }
+            else if(isPaused && Input.GetKeyDown(KeyCode.Escape))
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                Time.timeScale = 1;
+                Paused.SetActive(false);
+                isPaused = false;
             }
 
-            if (Input.GetKeyDown(KeyCode.E) && SetTrue.inRangeNPC)
-            {
-                SetTrue.DialogueWillPlay.SetActive(true);
-                isTalking = true;
-            }
-
-            if (_footSteps.magnitude != 0)
-            {
-                CallSound();
-            }
-            
             if (Input.GetKeyDown(KeyCode.E) && InRange && !isPressed)
             {
-                SetTrue.animator.enabled = true;
                 Animation.SetActive(true);
                 NPC.SetActive(true);
                 BeginSequence.Play("AnimationText");
@@ -110,26 +80,14 @@ public class Playerscript : MonoBehaviour
                 if (this.BeginSequence.GetCurrentAnimatorStateInfo(0).IsName("AnimationText"))
                 {
                     isSequenceDone = true;
-                    PressE.SetActive(false);
                 }
                 
-            }
-
-            if (SetTrue != null && SetTrue.inRangeNPC )
-            {
-                SetTrue.LookAtPlayer();
-            }
-            
-            if (Input.GetKeyDown(KeyCode.E) && SetTrue.inRangeNPC)
-            {
-                SetTrue.DialogueWillPlay.SetActive(true);
-                SetTrue._pressEToTalk.SetActive(false);
             }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("PressE") && !isPressed && !isSequenceDone)
+        if (other.gameObject.CompareTag("PressE") && !isPressed)
         {
             PressE.SetActive(true);
             InRange = true;
@@ -137,27 +95,13 @@ public class Playerscript : MonoBehaviour
         else
         {
             PressE.SetActive(false);
-        }
-        
-        
-
-        if (other.gameObject.CompareTag("PressE") && isPressed && isSequenceDone)
-        {
-            PressE.SetActive(false);
-        }
-
-        if (other.gameObject.CompareTag("NPC") && !isTalking)
-        {
-            SetTrue.inRangeNPC = true;
-            SetTrue._pressEToTalk.SetActive(true);
+            InRange = false;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        SetTrue.inRangeNPC = false;
-        SetTrue._pressEToTalk.SetActive(false);
-        PressE.SetActive(false); 
+        PressE.SetActive(false);
         InRange = false;
     }
 
@@ -181,42 +125,31 @@ public class Playerscript : MonoBehaviour
         Application.Quit();
     }
 
-    private void StartBop()
+    void StartBop()
     {
         HeadBopper.Play("HeadBop");
     }
     
-    private void StopBop()
+    void StopBop()
     {
         HeadBopper.Play("New State");
     }
 
-    private void CallSound()
+    void Move()
     {
-        Invoke("randomSound", 0.3f);
-    }
-    
-    private void randomSound()
-    {
-        audioSource.clip = Walker[Random.Range(0, Walker.Length)];
-        audioSource.Play();
-        CallSound();
-    }
+        float x = Input.GetAxis("Horizontal");
+        float y = Input.GetAxis("Vertical");
 
-    // ReSharper disable Unity.PerformanceAnalysis
-    private void Move()
-    {
-        var x = Input.GetAxis("Horizontal");
-        var y = Input.GetAxis("Vertical");
-
-        var move = transform.right * x + transform.forward * y;
+        Vector3 move = transform.right * x + transform.forward * y;
+        Vector3 Conversion = transform.localPosition;
         characterController.Move(move * Speed * Time.deltaTime);
 
+       
         velocity.y += Gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
 
-        _footSteps = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        if (_footSteps.magnitude != 0)
+        var _input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (_input.magnitude != 0)
         {
             StartBop();
         }
@@ -226,6 +159,15 @@ public class Playerscript : MonoBehaviour
         }
     }
 
-   
+    void CallSound()
+    {
+        Invoke("RandomSound", 0.2f);
+    }
+
+    void RandomSound()
+    {
+        audioSource.clip = Walker[Random.Range(0, Walker.Length)];
+        audioSource.Play();
+    }
     
 }
