@@ -15,8 +15,7 @@ namespace DialogueSystem
         
         [Header("Time Parameters: ")]
         [SerializeField] private float Delay;
-        [SerializeField] private float delayAfter;
-        
+
         [Header("Sound: ")]
         [SerializeField] private AudioClip soundBeep;
 
@@ -31,7 +30,7 @@ namespace DialogueSystem
         private void OnEnable()
         {
             ResetLine();
-            lineAppear = WriteText(input, _textHolder, Delay, soundBeep, delayAfter);
+            lineAppear = WriteText(input, _textHolder, Delay, soundBeep);
             StartCoroutine(lineAppear);
         }
 

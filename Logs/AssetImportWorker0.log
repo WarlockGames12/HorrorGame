@@ -1,10 +1,10 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.6f1 (338bb68529b2) revision 3378102'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Home; OS build 19044.1889; Version 2009; 64bit' Language: 'nl' Physical Memory: 16272 MB
+OS: 'Windows 10 Home; OS build 19044.2364; Version 2009; 64bit' Language: 'nl' Physical Memory: 16272 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2020.3.6f1\Editor\Unity.exe
+D:\InstallLocations\2020.3.6f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
@@ -15,14 +15,14 @@ D:/awesome/HorrorGame
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-52966
+56158
 Successfully changed project path to: D:/awesome/HorrorGame
 D:/awesome/HorrorGame
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 257.33 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 48.96 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.6f1 (338bb68529b2)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.6f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/InstallLocations/2020.3.6f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path D:/awesome/HorrorGame/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
@@ -32,20 +32,110 @@ Direct3D:
     VRAM:     4018 MB
     Driver:   30.0.15.1278
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.6f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.6f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56540
+Mono path[0] = 'D:/InstallLocations/2020.3.6f1/Editor/Data/Managed'
+Mono path[1] = 'D:/InstallLocations/2020.3.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/InstallLocations/2020.3.6f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56768
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.6f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.017358 seconds.
+Register platform support module: D:/InstallLocations/2020.3.6f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/InstallLocations/2020.3.6f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: D:/InstallLocations/2020.3.6f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: D:/InstallLocations/2020.3.6f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.003474 seconds.
+Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 173.86 ms, found 0 plugins.
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 53.57 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in 19.525 seconds
+- Completed reload, in  7.544 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.002972 seconds.
+Registered in 0.001114 seconds.
 Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.607 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
+Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1253 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 83.1 MB.
+System memory in use after: 83.1 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1721.
+Total: 2.719500 ms (FindLiveObjects: 0.212500 ms CreateObjectMapping: 0.064700 ms MarkObjects: 2.305000 ms  DeleteObjects: 0.135700 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Models/Persons/DeadBodies/Dead1/Police/Sitting Idle.fbx
+  artifactKey: Guid(f1176605f96717049a60bc57a7d5c0e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Persons/DeadBodies/Dead1/Police/Sitting Idle.fbx using Guid(f1176605f96717049a60bc57a7d5c0e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f15699cdb7efff3bb24ab2f7b7fdd78') in 0.642740 seconds
+  Import took 0.646721 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001273 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.34 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.249 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.35 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1219 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 97.1 MB.
+System memory in use after: 97.2 MB.
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 1735.
+Total: 2.831200 ms (FindLiveObjects: 0.194900 ms CreateObjectMapping: 0.061900 ms MarkObjects: 2.465800 ms  DeleteObjects: 0.107000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 440.035981 seconds.
+  path: Assets/Animations/mixamo.com.anim
+  artifactKey: Guid(6722f88f6ac40e542a6df16e1c46f4fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/mixamo.com.anim using Guid(6722f88f6ac40e542a6df16e1c46f4fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e8a2974a1d50d3f145e1e9778dd27f5') in 0.043739 seconds
+  Import took 0.059521 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 79.352153 seconds.
+  path: Assets/Models/Persons/Dood/Running.controller
+  artifactKey: Guid(5047a99bd3536be428750d5b4bd6b18d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Persons/Dood/Running.controller using Guid(5047a99bd3536be428750d5b4bd6b18d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '71ff0a47c47ea7f72aad790f93da2351') in 0.061517 seconds
+  Import took 0.066121 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 33.414808 seconds.
+  path: Assets/Models/Persons/Dood/mixamo.com.anim
+  artifactKey: Guid(fd4ac2dd85b9bc94385ede6830830eaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Persons/Dood/mixamo.com.anim using Guid(fd4ac2dd85b9bc94385ede6830830eaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1ff7fcfc7b54871ae9e8273fb616a60') in 0.333713 seconds
+  Import took 0.337640 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.805972 seconds.
+  path: Assets/Animations/Sitting Idle.fbx
+  artifactKey: Guid(f1176605f96717049a60bc57a7d5c0e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Sitting Idle.fbx using Guid(f1176605f96717049a60bc57a7d5c0e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '72902a6844fcf1801bc8084c42b58ecf') in 0.494920 seconds
+  Import took 0.503780 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

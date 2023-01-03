@@ -7,6 +7,10 @@ TagManager:
   - WayPoint
   - NPC
   - PressE
+  - Bench
+  - InvisableWall
+  - BusDoor
+  - PlayerDeath
   layers:
   - Default
   - TransparentFX

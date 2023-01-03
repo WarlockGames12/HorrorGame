@@ -8,7 +8,7 @@ namespace DialogueSystem
     {
 
         private IEnumerator dialogueSeq;
-        private bool dialogueFinished;
+        public bool dialogueFinished;
         
         private void OnEnable()
         {
@@ -30,7 +30,7 @@ namespace DialogueSystem
         {
             if (!dialogueFinished)
             {
-                for (int i = 0; i < transform.childCount - 1; i++)
+                for (var i = 0; i < transform.childCount; i++)
                 {
                     Deactivate();
                     transform.GetChild(i).gameObject.SetActive(true);
@@ -39,7 +39,7 @@ namespace DialogueSystem
             }
             else
             {
-                int index = transform.childCount - 1;
+                var index = transform.childCount;
                 Deactivate();
                 transform.GetChild(index).gameObject.SetActive(true);
                 yield return new WaitUntil(() => transform.GetChild(index).GetComponent<DialogueLine>().isFinished);
@@ -51,7 +51,7 @@ namespace DialogueSystem
 
         private void Deactivate()
         {
-            for (int i = 0; i < transform.childCount; i++)
+            for (var i = 0; i < transform.childCount; i++)
             {
                 transform.GetChild(i).gameObject.SetActive(false);
             }
